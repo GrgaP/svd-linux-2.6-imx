@@ -306,6 +306,23 @@
 		mclk = <24000000>;
 		mclk_source = <0>;
 	};
+	
+	ov5647_mipi: ov5647_mipi@36 {
+		compatible = "ovti,ov5647_mipi";
+		reg = <0x36>;
+		clocks = <&clks 200>;
+		clock-names = "csi_mclk";
+#if 0
+		DOVDD-supply = <&vgen4_reg>; /* 1.8v */
+		AVDD-supply = <&vgen3_reg>;  /* 2.8v, rev C board is VGEN3 rev B board is VGEN5 */
+		DVDD-supply = <&vgen2_reg>;  /* 1.5v*/
+#endif
+		pwn-gpios = <&gpio3 13 1>;
+		rst-gpios = <&gpio4 10 0>;
+		csi_id = <1>;
+		mclk = <24000000>;
+		mclk_source = <0>;
+	};
 };
 
 &i2c2 {
